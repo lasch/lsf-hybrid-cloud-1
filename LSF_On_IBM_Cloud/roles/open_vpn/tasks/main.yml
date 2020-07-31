@@ -25,7 +25,7 @@
 # - name: "Install openvpn packages"
 #   yum:
 #     update_cache: yes
-#     name: [openvpn easy-rsa emacs]
+#     name: [openvpn easy-rsa]
 #     state: latest
 #   become: yes
 ###################################
