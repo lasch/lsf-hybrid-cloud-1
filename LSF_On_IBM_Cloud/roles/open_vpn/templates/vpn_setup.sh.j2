@@ -98,8 +98,10 @@ ssh root@${onprem_node} "./setup-client.sh ${opt} --setup 1 --execute 0"
 logInfo 1 "${this} RC:$? Execution of script on ${onprem_node}"
 
 # get server tar file from client
-scp root@${onprem_node}:server.tgz .
-logInfo 1 "${this} RC:$? retrieval of server.tgz from OpenVPN client as ${onprem_node}"
+if [[ ${purge} -eq 0 ]] ; then
+    scp root@${onprem_node}:server.tgz .
+    logInfo 1 "${this} RC:$? retrieval of server.tgz from OpenVPN client as ${onprem_node}"
+fi
 
 # choice: we use master for simplicity of VPN connection
 case ${setup_type} in
