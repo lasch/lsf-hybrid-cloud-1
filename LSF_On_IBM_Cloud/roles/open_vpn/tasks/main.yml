@@ -35,6 +35,9 @@
     state: directory
 
 - name: "Template the setup script"
+  vars:
+    setup_type: "master"
+    purge: 0
   template:
     src: "vpn_setup.sh.j2"
     dest: "{{gen_files_dir}}/scripts/setup.sh"
